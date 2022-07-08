@@ -28,7 +28,8 @@ public class TokenService {
     
     private static final String JWT_KEY = "SECRET_KEY";
 
-    private static final long JWT_EXPIRATION_TIME = 3600 * 5;
+    // Time expiration 1 hour
+    private static final long JWT_EXPIRATION_TIME = 3600000;
 
     public String getUsernameFromToken(String token) {
         return getClaimFromToken(token, Claims::getSubject);
