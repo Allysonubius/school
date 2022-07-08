@@ -48,6 +48,7 @@ public class UserModel implements Serializable{
     }
 
     public UserModel(UUID id, String nome, String email, String senha){
+        super();
         this.id = id;
         this.nome = nome;
         this.email = email;
