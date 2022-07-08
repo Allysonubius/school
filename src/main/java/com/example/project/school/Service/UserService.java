@@ -32,7 +32,7 @@ public class UserService {
             userModel.setToken(tokenService.generateBearerToken(userModel));
             return this.userRepository.save(userModel);
         }else{
-            throw new Exception("ERROR "+"Já existe o email registrado.");
+            throw new Exception("Ja existe o email registrado.");
         }
     }
 
