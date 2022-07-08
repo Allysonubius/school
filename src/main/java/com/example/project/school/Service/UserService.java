@@ -1,6 +1,8 @@
 package com.example.project.school.Service;
 
 import java.util.Date;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.example.project.school.Entity.UserLoginEntity;
@@ -24,10 +26,14 @@ public class UserService {
         this.tokenService = tokenService;
     }
 
-    public UserModel userRegisteModel(UserModel userModel){
-        userModel.setToken(tokenService.generateBearerToken(userModel));
-    
-        return this.userRepository.save(userModel);
+    public UserModel userRegisteModel(UserModel userModel) throws Exception{
+        Optional<UserModel> optional = this.userRepository.findByEmail(userModel.getEmail());
+        if(!optional.isPresent() && userModel.getEmail().length() > 0){
+            userModel.setToken(tokenService.generateBearerToken(userModel));
+            return this.userRepository.save(userModel);
+        }else{
+            throw new Exception("ERROR "+"Já existe o email registrado.");
+        }
     }
 
     public UserModel authenticateUser(UserLoginEntity userLoginEntity, String token) throws Exception{
