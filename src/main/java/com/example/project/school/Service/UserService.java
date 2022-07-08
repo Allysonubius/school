@@ -30,9 +30,9 @@ public class UserService {
         return this.userRepository.save(userModel);
     }
 
-    public UserModel authenticateUser(UserLoginEntity userLoginEntity, String token){
+    public UserModel authenticateUser(UserLoginEntity userLoginEntity, String token) throws Exception{
         UserModel userModel = this.userRepository.findByEmail(userLoginEntity.getEmail()).orElseThrow(ExistingEmailException::new);
-        if(userLoginEntity.getSenha().equals(userLoginEntity.getSenha()) && !token.isEmpty() && validadeToken(token)){
+        if(userLoginEntity.getSenha().equals(userLoginEntity.getSenha()) && !token.isEmpty() && token != null && validadeToken(token)){
             return userModel;
         }else{
             throw new InvalidLoginException();
