@@ -1,6 +1,7 @@
 package com.example.project.school.Model;
 
 import java.io.Serial;
+import java.io.Serializable;
 import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Table(name = "ROLE")
-public class RoleModel {
+public class RoleModel implements Serializable{
     
     @Serial
     private static final long serialVersionUUID = 1L;
@@ -40,7 +41,9 @@ public class RoleModel {
     private String roleDescription;
 
     public RoleModel(String roleDescription, String roleName){
+        super();
         this.roleName = roleName;
         this.roleDescription = roleDescription;
     }
+
 }

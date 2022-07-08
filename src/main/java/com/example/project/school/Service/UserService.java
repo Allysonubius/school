@@ -2,9 +2,7 @@ package com.example.project.school.Service;
 
 import java.util.Date;
 import java.util.Optional;
-
 import org.springframework.stereotype.Service;
-
 import com.example.project.school.Entity.UserLoginEntity;
 import com.example.project.school.Exception.ExistingEmailException;
 import com.example.project.school.Exception.ExpiredTokenException;
@@ -12,7 +10,6 @@ import com.example.project.school.Exception.InvalidLoginException;
 import com.example.project.school.Exception.InvalidTokenException;
 import com.example.project.school.Model.UserModel;
 import com.example.project.school.Repository.UserRepository;
-
 import io.jsonwebtoken.Claims;
 
 @Service

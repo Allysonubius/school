@@ -1,13 +1,11 @@
 package com.example.project.school.Service;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,7 +13,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import com.example.project.school.Model.UserModel;
 import com.example.project.school.Repository.UserRepository;
-
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -91,7 +88,7 @@ public class TokenService {
         }
     }  
 
-    private Set getAuthority(UserModel user) {
+    private Set<SimpleGrantedAuthority> getAuthority(UserModel user) {
         Set<SimpleGrantedAuthority> authorities = new HashSet<>();
         return authorities;
     }

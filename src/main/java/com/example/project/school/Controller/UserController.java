@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import static java.util.Objects.isNull;
-
 import com.example.project.school.Entity.UserLoginEntity;
 import com.example.project.school.Entity.UserRegisterEntity;
 import com.example.project.school.Model.UserModel;
